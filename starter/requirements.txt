@@ -7,3 +7,5 @@ requests
 fastapi
 uvicorn
 gunicorn
+ydata-profiling
+dvc
