@@ -1,3 +1,9 @@
+"""
+Process the data used in the machine learning pipeline
+
+Author: Fu Cheng
+Date: Jan 2024
+"""
 import numpy as np
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 
