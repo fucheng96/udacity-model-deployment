@@ -69,7 +69,7 @@ def process_data(
 
     Returns
     -------
-    X : np.array
+    x : np.array
         Processed data.
     y : np.array
         Processed labels if labeled=True, otherwise empty np.array.
