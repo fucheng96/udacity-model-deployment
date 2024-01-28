@@ -27,7 +27,7 @@ data, str_columns = load_data(data_fpath)
 cat_features = [x for x in str_columns if x != "salary"]
 
 # Perform train-test split
-train, test = train_test_split(data, test_size=0.20)
+train, test = train_test_split(data, test_size=0.2)
 
 # Process training data ith the process_data function
 x_train, y_train, encoder, lb = process_data(
