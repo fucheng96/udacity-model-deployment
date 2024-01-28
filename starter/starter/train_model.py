@@ -1,5 +1,5 @@
 """
-# Script to train machine learning model
+Script to train machine learning model
 
 Author: Fu Cheng
 Date: Jan 2024
