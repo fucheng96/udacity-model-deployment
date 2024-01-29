@@ -5,8 +5,11 @@ Author: Fu Cheng
 Date: Jan 2024
 """
 # Import libraries
-from fastapi.testclient import TestClient
+import sys
+sys.path.append('..')
 from main import app
+from fastapi.testclient import TestClient
+
 
 # Instantiate the testing client with our app.
 client = TestClient(app)
@@ -18,6 +21,7 @@ def test_get_root():
     r = client.get("/")
     assert r.status_code == 200
     assert r.json()[0] == "Hello world!"
+
 
 def test_post_inference():
     """
@@ -41,8 +45,9 @@ def test_post_inference():
     }
     r = client.post("/predict", json=sample)
     assert r.status_code == 200
-    assert r.json() == "<=50K" 
-    
+    assert r.json() == "<=50K"
+
+
 def test_post_inference_false_query():
     """
     Test model inference with invalid query.
