@@ -39,8 +39,8 @@ For additional information see the Model Card paper: https://arxiv.org/pdf/1810.
 
 ## Metrics
     1. [Precision](https://wiki.cloudfactory.com/docs/mp-wiki/metrics/precision): 0.78
-    2. [Recall](https://wiki.cloudfactory.com/docs/mp-wiki/metrics/recall): 0.62
-    3. [FBeta](https://wiki.cloudfactory.com/docs/mp-wiki/metrics/f-beta-score): 0.69
+    2. [Recall](https://wiki.cloudfactory.com/docs/mp-wiki/metrics/recall): 0.59
+    3. [FBeta](https://wiki.cloudfactory.com/docs/mp-wiki/metrics/f-beta-score): 0.67
 
 ## Ethical Considerations
     - The dataset used for training this model was compiled by Barry Becker from the 1994 Census database.
