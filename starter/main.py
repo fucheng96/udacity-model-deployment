@@ -8,13 +8,15 @@ are saved to a log file named 'main_log.log' in the same directory as the script
 Author: Fu Cheng
 Date: Jan 2024
 """
+# Import libraries
+import os
+import joblib
 import logging
 import pandas as pd
 import numpy as np
-import joblib
 from fastapi import FastAPI
 from pydantic import BaseModel
-from starter.ml.data_process import process_data, cat_features
+from starter.ml.data import process_data, load_data
 from starter.ml.model import inference
 
 # Define column names
@@ -23,6 +25,11 @@ COLUMNS = [
     "marital-status", "occupation", "relationship", "race", "sex",
     "capital-gain", "capital-loss", "hours-per-week", "native-country"
 ]
+
+# Get cat features
+data_fpath = os.path.join(os.getcwd(), "data/census_v2.csv")
+_, str_columns = load_data(data_fpath)
+cat_features = [x for x in str_columns if x != "salary"]
 
 # Define input data model
 class InputData(BaseModel):
