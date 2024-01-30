@@ -129,7 +129,7 @@ async def predict(input_data: InputData) -> str:
 
     # Define column names
     columns = [
-        "age", "workclass", "fnlgt", "education", "education-num",
+        "age", "workclass", "fnlwgt", "education", "education-num",
         "marital-status", "occupation", "relationship", "race", "sex",
         "capital-gain", "capital-loss", "hours-per-week", "native-country"
     ]
