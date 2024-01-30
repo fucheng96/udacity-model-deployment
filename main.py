@@ -27,8 +27,7 @@ COLUMNS = [
 ]
 
 # Get cat features
-starter_dir = os.path.dirname(os.getcwd())
-data_dir = os.path.join(starter_dir, "data")
+data_dir = os.path.join(os.getcwd(), "data")
 data_fpath = os.path.join(data_dir, "census_v2.csv")
 data, str_columns = load_data(data_fpath)
 cat_features = [x for x in str_columns if x != "salary"]
@@ -109,7 +108,7 @@ logging.basicConfig(filename="main_log.log", level=logging.INFO,
 app = FastAPI()
 
 # Load models
-model_dir = os.path.join(starter_dir, "model")
+model_dir = os.path.join(os.getcwd(), "model")
 model = joblib.load(os.path.join(model_dir, "model.pkl"))
 encoder = joblib.load(os.path.join(model_dir, "encoder.pkl"))
 lb = joblib.load(os.path.join(model_dir, "lb.pkl"))
