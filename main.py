@@ -33,7 +33,7 @@ class InputData(BaseModel):
     Attributes:
         age (int): Age of the individual.
         workclass (str): Workclass of the individual.
-        fnlwgt (int): Final weight estimation for the individual.
+        fnlgt (int): Final weight estimation for the individual.
         education (str): Education level of the individual.
         education_num (int): Numeric representation of education level.
         marital_status (str): Marital status of the individual.
@@ -51,7 +51,7 @@ class InputData(BaseModel):
     """
     age: int
     workclass: str
-    fnlwgt: int
+    fnlgt: int
     education: str
     education_num: int
     marital_status: str
@@ -78,7 +78,7 @@ class InputData(BaseModel):
             "example": {
                 "age": 35,
                 "workclass": "Private",
-                "fnlwgt": 77516,
+                "fnlgt": 77516,
                 "education": "HS-grad",
                 "education_num": 9,
                 "marital_status": "Divorced",
@@ -129,14 +129,14 @@ async def predict(input_data: InputData) -> str:
 
     # Define column names
     columns = [
-        "age", "workclass", "fnlwgt", "education", "education-num",
+        "age", "workclass", "fnlgt", "education", "education-num",
         "marital-status", "occupation", "relationship", "race", "sex",
         "capital-gain", "capital-loss", "hours-per-week", "native-country"
     ]
 
     # Insert data
     input_array = np.array([[
-        input_data.age, input_data.workclass, input_data.fnlwgt,
+        input_data.age, input_data.workclass, input_data.fnlgt,
         input_data.education, input_data.education_num,
         input_data.marital_status, input_data.occupation,
         input_data.relationship, input_data.race, input_data.sex,

@@ -5,14 +5,13 @@ Author: Fu Cheng
 Date: Jan 2024
 """
 # Import libraries
-from typing import Dict
 import requests
 
 # API endpoint
 URL = "https://render-deployment-example-oee9.onrender.com/predict"
 
 # Sample data to be sent as JSON
-sample: Dict[str, str] = {
+sample = {
     "age": 35,                           # Age of the individual
     "workclass": "Private",              # Workclass of the individual
     "fnlgt": 77516,                      # Final weight
