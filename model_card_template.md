@@ -5,7 +5,7 @@ For additional information see the Model Card paper: https://arxiv.org/pdf/1810.
     - Model Developer: Fu Cheng
     - Model Date: 29 Jan 2024
     - Model Version: 1.0.0
-    - Model Type: Gradient Boosting Classifier
+    - Model Type: Random Forest Classifier
     - Model Library: scikit-learn
     - Model License: MIT License 
 
@@ -38,9 +38,9 @@ For additional information see the Model Card paper: https://arxiv.org/pdf/1810.
     - This standard practice helps assess the model's generalization capabilities and ensures that it can make accurate predictions on unseen data.
 
 ## Metrics
-    1. [Precision](https://wiki.cloudfactory.com/docs/mp-wiki/metrics/precision): 0.79
-    2. [Recall](https://wiki.cloudfactory.com/docs/mp-wiki/metrics/recall): 0.62
-    3. [FBeta](https://wiki.cloudfactory.com/docs/mp-wiki/metrics/f-beta-score): 0.69
+    1. [Precision](https://wiki.cloudfactory.com/docs/mp-wiki/metrics/precision): 0.74
+    2. [Recall](https://wiki.cloudfactory.com/docs/mp-wiki/metrics/recall): 0.63
+    3. [FBeta](https://wiki.cloudfactory.com/docs/mp-wiki/metrics/f-beta-score): 0.68
 
 ## Ethical Considerations
     - The dataset used for training this model was compiled by Barry Becker from the 1994 Census database.

@@ -6,7 +6,7 @@ Date: Jan 2024
 """
 # Import libraries
 from sklearn.metrics import fbeta_score, precision_score, recall_score
-from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 
 # Optional: implement hyperparameter tuning.
@@ -26,7 +26,7 @@ def train_model(x_train, y_train):
         Trained machine learning model.
     """
     # Instantiate model
-    gbc = GradientBoostingClassifier(random_state=0)
+    gbc = RandomForestClassifier(random_state=42)
 
     # Perform model fitting
     gbc.fit(x_train, y_train)
