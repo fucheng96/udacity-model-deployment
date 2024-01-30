@@ -9,7 +9,7 @@ from typing import Dict
 import requests
 
 # API endpoint
-URL = "https://census-income-predict.onrender.com/predict"
+URL = "https://render-deployment-example-oee9.onrender.com/predict"
 
 # Sample data to be sent as JSON
 sample: Dict[str, str] = {
