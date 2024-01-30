@@ -26,12 +26,12 @@ def train_model(x_train, y_train):
         Trained machine learning model.
     """
     # Instantiate model
-    gbc = RandomForestClassifier(random_state=42)
+    rfc = RandomForestClassifier(random_state=69)
 
     # Perform model fitting
-    gbc.fit(x_train, y_train)
+    rfc.fit(x_train, y_train)
 
-    return gbc
+    return rfc
 
 
 def compute_model_metrics(y, preds):
@@ -68,7 +68,8 @@ def inference(model, x):
         Data used for prediction.
     Returns
     -------
-    preds : np.array
+    predictions : np.array
         Predictions from the model.
     """
-    return model.predict(x)
+    predictions = model.predict(x)
+    return predictions
