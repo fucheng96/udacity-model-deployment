@@ -19,13 +19,6 @@ from pydantic import BaseModel
 from starter.ml.data import process_data, load_data
 from starter.ml.model import inference
 
-# Define column names
-COLUMNS = [
-    "age", "workclass", "fnlwgt", "education", "education-num",
-    "marital-status", "occupation", "relationship", "race", "sex",
-    "capital-gain", "capital-loss", "hours-per-week", "native-country"
-]
-
 # Get cat features
 data_dir = os.path.join(os.getcwd(), "data")
 data_fpath = os.path.join(data_dir, "census_v2.csv")
@@ -118,7 +111,7 @@ lb = joblib.load(os.path.join(model_dir, "lb.pkl"))
 async def root():
     """Welcome message."""
     logging.info("Root endpoint accessed.")
-    return {"message": "Hello world!"}
+    return {"message": "Welcome to this amazing app!"}
 
 # Define prediction endpoint
 @app.post("/predict")
@@ -134,6 +127,14 @@ async def predict(input_data: InputData) -> str:
     """
     logging.info("Prediction endpoint accessed.")
 
+    # Define column names
+    columns = [
+        "age", "workclass", "fnlwgt", "education", "education-num",
+        "marital-status", "occupation", "relationship", "race", "sex",
+        "capital-gain", "capital-loss", "hours-per-week", "native-country"
+    ]
+
+    # Insert data
     input_array = np.array([[
         input_data.age, input_data.workclass, input_data.fnlwgt,
         input_data.education, input_data.education_num,
@@ -142,7 +143,7 @@ async def predict(input_data: InputData) -> str:
         input_data.capital_gain, input_data.capital_loss,
         input_data.hours_per_week, input_data.native_country
     ]])
-    input_df = pd.DataFrame(data=input_array, columns=COLUMNS)
+    input_df = pd.DataFrame(data=input_array, columns=columns)
 
     # Process the data
     x, _, _, _ = process_data(
