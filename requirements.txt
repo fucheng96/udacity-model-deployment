@@ -3,8 +3,8 @@ pandas
 scikit-learn
 pytest
 requests
-fastapi
-uvicorn
+fastapi==0.63.0
+uvicorn==0.23.2
 gunicorn
 ydata-profiling
 httpx
