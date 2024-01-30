@@ -126,24 +126,26 @@ async def predict(input_data: InputData) -> str:
         str: Predicted output label.
     """
     logging.info("Prediction endpoint accessed.")
+    logging.info("Input data: %s", input_data)
 
-    # Define column names
-    columns = [
-        "age", "workclass", "fnlwgt", "education", "education-num",
-        "marital-status", "occupation", "relationship", "race", "sex",
-        "capital-gain", "capital-loss", "hours-per-week", "native-country"
-    ]
-
-    # Insert data
-    input_array = np.array([[
-        input_data.age, input_data.workclass, input_data.fnlgt,
-        input_data.education, input_data.education_num,
-        input_data.marital_status, input_data.occupation,
-        input_data.relationship, input_data.race, input_data.sex,
-        input_data.capital_gain, input_data.capital_loss,
-        input_data.hours_per_week, input_data.native_country
-    ]])
-    input_df = pd.DataFrame(data=input_array, columns=columns)
+    # Get the input data from the request data
+    data = {
+        "age": input_data.age,
+        "workclass": input_data.workclass,
+        "fnlwgt": input_data.fnlgt,
+        "education": input_data.education,
+        "education-num": input_data.education_num,
+        "marital-status": input_data.marital_status,
+        "occupation": input_data.occupation,
+        "relationship": input_data.relationship,
+        "race": input_data.race,
+        "sex": input_data.sex,
+        "capital-gain": input_data.capital_gain,
+        "capital-loss": input_data.capital_loss,
+        "hours-per-week": input_data.hours_per_week,
+        "native-country": input_data.native_country
+    }
+    input_df = pd.DataFrame([data])
 
     # Process the data
     x, _, _, _ = process_data(
