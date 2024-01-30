@@ -10,7 +10,7 @@ Date: Jan 2024
 """
 # Import libraries
 import os
-import joblib
+import pickle
 import logging
 import pandas as pd
 import numpy as np
@@ -109,9 +109,12 @@ app = FastAPI()
 
 # Load models
 model_dir = os.path.join(os.getcwd(), "model")
-model = joblib.load(os.path.join(model_dir, "model.pkl"))
-encoder = joblib.load(os.path.join(model_dir, "encoder.pkl"))
-lb = joblib.load(os.path.join(model_dir, "lb.pkl"))
+with open(os.path.join(model_dir, "model.pkl"), "rb") as model_file:
+    model = pickle.load(model_file)
+with open(os.path.join(model_dir, "encoder.pkl"), "rb") as encoder_file:
+    encoder = pickle.load(encoder_file)
+with open(os.path.join(model_dir, "lb.pkl"), "rb") as lb_file:
+    lb = pickle.load(lb_file)
 
 # Define root endpoint
 @app.get("/")
@@ -142,11 +145,11 @@ async def predict(input_data: InputData) -> str:
         input_data.capital_gain, input_data.capital_loss,
         input_data.hours_per_week, input_data.native_country
     ]])
-    data = pd.DataFrame(data=input_array, columns=COLUMNS)
+    input_df = pd.DataFrame(data=input_array, columns=COLUMNS)
 
     # Process the data
     x, _, _, _ = process_data(
-        data, categorical_features=cat_features, training=False,
+        input_df, categorical_features=cat_features, training=False,
         encoder=encoder, lb=lb
     )
 
