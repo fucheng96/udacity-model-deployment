@@ -6,7 +6,7 @@ Date: Jan 2024
 """
 # Import libraries
 import os
-import pickle
+import joblib
 from sklearn.model_selection import train_test_split
 
 # Import functions from other modules
@@ -59,13 +59,6 @@ slice_performance(
 )
 
 # Save model
-with open(os.path.join(starter_dir, "model/model.pkl"), "wb") as model_file:
-    pickle.dump(model, model_file)
-
-# Save encoder
-with open(os.path.join(starter_dir, "model/encoder.pkl"), "wb") as encoder_file:
-    pickle.dump(encoder, encoder_file)
-
-# Save lb
-with open(os.path.join(starter_dir, "model/lb.pkl"), "wb") as lb_file:
-    pickle.dump(lb, lb_file)
+joblib.dump(model, os.path.join(starter_dir, "model/model.pkl"))
+joblib.dump(encoder, os.path.join(starter_dir, "model/encoder.pkl"))
+joblib.dump(lb, os.path.join(starter_dir, "model/lb.pkl"))

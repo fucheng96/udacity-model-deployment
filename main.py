@@ -10,7 +10,7 @@ Date: Jan 2024
 """
 # Import libraries
 import os
-import pickle
+import joblib
 import logging
 import pandas as pd
 import numpy as np
@@ -109,12 +109,9 @@ app = FastAPI()
 
 # Load models
 model_dir = os.path.join(os.getcwd(), "model")
-with open(os.path.join(model_dir, "model.pkl"), "rb") as model_file:
-    model = pickle.load(model_file)
-with open(os.path.join(model_dir, "encoder.pkl"), "rb") as encoder_file:
-    encoder = pickle.load(encoder_file)
-with open(os.path.join(model_dir, "lb.pkl"), "rb") as lb_file:
-    lb = pickle.load(lb_file)
+model = joblib.load(os.path.join(model_dir, "model.pkl"))
+encoder = joblib.load(os.path.join(model_dir, "encoder.pkl"))
+lb = joblib.load(os.path.join(model_dir, "lb.pkl"))
 
 # Define root endpoint
 @app.get("/")
