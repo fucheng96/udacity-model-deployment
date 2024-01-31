@@ -134,7 +134,7 @@ def slice_performance(
     Returns:
         None
     """
-    with open('slice_performance.txt', 'w', encoding="utf-8") as f:
+    with open('slice_output.txt', 'w', encoding="utf-8") as f:
         # Loop through all categorical features
         for cat in cat_features:
             # Loop through each unique value in each categorical feature
