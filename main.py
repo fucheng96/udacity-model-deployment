@@ -10,6 +10,7 @@ Date: Jan 2024
 """
 # Import libraries
 import os
+import sys
 import joblib
 import logging
 import pandas as pd
@@ -19,10 +20,30 @@ from pydantic import BaseModel
 from starter.ml.data import process_data, load_data
 from starter.ml.model import inference
 
-# Get cat features
-data_dir = os.path.join(os.getcwd(), "data")
+
+# Get the absolute path of the directory containing the current script
+def find_root_directory():
+    """
+    Find main dir
+    """
+    current_dir = os.getcwd()
+
+    # Search for main.py recursively from the current directory
+    while current_dir != '/':
+        main_file = os.path.join(current_dir, 'main.py')
+        if os.path.isfile(main_file):
+            return current_dir
+        current_dir = os.path.dirname(current_dir)
+
+    # If main.py is not found, return None
+    return None
+
+root_dir = find_root_directory()
+data_dir = os.path.join(root_dir, "data")
 data_fpath = os.path.join(data_dir, "census_v2.csv")
 data, str_columns = load_data(data_fpath)
+
+# Get cat features
 cat_features = [x for x in str_columns if x != "salary"]
 
 # Define input data model
@@ -101,7 +122,7 @@ logging.basicConfig(filename="main_log.log", level=logging.INFO,
 app = FastAPI()
 
 # Load models
-model_dir = os.path.join(os.getcwd(), "model")
+model_dir = os.path.join(root_dir, "model")
 model = joblib.load(os.path.join(model_dir, "model.pkl"))
 encoder = joblib.load(os.path.join(model_dir, "encoder.pkl"))
 lb = joblib.load(os.path.join(model_dir, "lb.pkl"))
