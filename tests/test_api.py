@@ -5,9 +5,9 @@ Author: Fu Cheng
 Date: Jan 2024
 """
 # Import libraries
-import os
-import sys
-sys.path.append(os.path.abspath('..'))
+# import os
+# import sys
+# sys.path.append(os.path.abspath('..'))
 from main import app
 from fastapi.testclient import TestClient
 

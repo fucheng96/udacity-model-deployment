@@ -7,9 +7,9 @@ and model inference functionality provided by the `starter.ml` package.
 Author: Fu Cheng
 Date: Jan 2024
 """
-import os
-import sys
-sys.path.append(os.path.abspath('..'))
+# import os
+# import sys
+# sys.path.append(os.path.abspath('..'))
 import pytest
 import joblib
 from sklearn.model_selection import train_test_split

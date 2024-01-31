@@ -150,7 +150,7 @@ async def predict(input_data: InputData) -> str:
     logging.info("Input data: %s", input_data)
 
     # Get the input data from the request data
-    data = {
+    data_ = {
         "age": input_data.age,
         "workclass": input_data.workclass,
         "fnlwgt": input_data.fnlgt,
@@ -166,7 +166,7 @@ async def predict(input_data: InputData) -> str:
         "hours-per-week": input_data.hours_per_week,
         "native-country": input_data.native_country
     }
-    input_df = pd.DataFrame([data])
+    input_df = pd.DataFrame([data_])
 
     # Process the data
     x, _, _, _ = process_data(
