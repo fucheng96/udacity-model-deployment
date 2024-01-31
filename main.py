@@ -176,7 +176,7 @@ async def predict(input_data: InputData) -> str:
 
     # Inference
     y = inference(model=model, x=x)
-    output = lb.inverse_transform(y)[0]
+    output = lb.inverse_transform(y)[0].strip()
 
     logging.info("Predicted output: %s", output)
     return output
