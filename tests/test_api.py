@@ -5,9 +5,28 @@ Author: Fu Cheng
 Date: Jan 2024
 """
 # Import libraries
-# import os
-# import sys
-# sys.path.append(os.path.abspath('..'))
+import os
+import sys
+
+def find_root_directory():
+    """
+    Find main dir
+    """
+    current_dir = os.getcwd()
+
+    # Search for main.py recursively from the current directory
+    while current_dir != '/':
+        main_file = os.path.join(current_dir, 'main.py')
+        if os.path.isfile(main_file):
+            return current_dir
+        current_dir = os.path.dirname(current_dir)
+
+    # If main.py is not found, return None
+    return None
+
+root_dir = find_root_directory()
+sys.path.append((root_dir))
+
 from main import app
 from fastapi.testclient import TestClient
 
