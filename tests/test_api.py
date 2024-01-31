@@ -40,7 +40,7 @@ def test_get_root():
     """
     r = client.get("/")
     assert r.status_code == 200
-    assert r.json()[0] == "Hello world!"
+    assert r.json()[0] == "Welcome to this amazing app!"
 
 
 def test_post_inference():
