@@ -38,9 +38,9 @@ For additional information see the Model Card paper: https://arxiv.org/pdf/1810.
     - This standard practice helps assess the model's generalization capabilities and ensures that it can make accurate predictions on unseen data.
 
 ## Metrics
-    1. [Precision](https://wiki.cloudfactory.com/docs/mp-wiki/metrics/precision): 0.74
-    2. [Recall](https://wiki.cloudfactory.com/docs/mp-wiki/metrics/recall): 0.63
-    3. [FBeta](https://wiki.cloudfactory.com/docs/mp-wiki/metrics/f-beta-score): 0.68
+    1. [Precision](https://wiki.cloudfactory.com/docs/mp-wiki/metrics/precision): 0.72
+    2. [Recall](https://wiki.cloudfactory.com/docs/mp-wiki/metrics/recall): 0.62
+    3. [FBeta](https://wiki.cloudfactory.com/docs/mp-wiki/metrics/f-beta-score): 0.67
 
 ## Ethical Considerations
     - The dataset used for training this model was compiled by Barry Becker from the 1994 Census database.
