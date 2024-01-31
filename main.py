@@ -132,7 +132,7 @@ lb = joblib.load(os.path.join(model_dir, "lb.pkl"))
 async def root():
     """Welcome message."""
     logging.info("Root endpoint accessed.")
-    return {"message": "Welcome to this amazing app!"}
+    return {"Welcome to this amazing app!"}
 
 # Define prediction endpoint
 @app.post("/predict")
